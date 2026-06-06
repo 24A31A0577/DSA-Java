@@ -24,11 +24,10 @@ class Solution {
             {
                 System.out.print(" ");
             }
-            for(int j=2*n-i+1;j<=2*n;j++)//loop for num
+            for(int j=i;j>=1;j--)//loop for num
             {
-                System.out.print(2*n-j+1);
+                System.out.print(j);
             }
             System.out.println();
-        }
     }
 }
