@@ -1,0 +1,36 @@
+/*
+Pattern 11:
+Example (n = 5):
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
+Approach:
+1. Even-indexed rows start with 1.
+2. Odd-indexed rows start with 0.
+3. After printing each number, flip it using:
+   s = 1 - s
+*/
+class Solution {
+    public void pattern11(int n) {
+        int s=0;
+        for(int i=0;i<n;i++)
+        {
+            if(i%2==0)
+            {
+                s=1;//to start with 1 if even row
+            }
+            else
+            {
+                s=0;//if odd row starts with 0
+            }
+            for(int j=0;j<=i;j++)
+            {
+                System.out.print(s+" ");
+                s=1-s;//for flipping btw 1 and 0
+            }
+            System.out.println();
+        }
+    }
+}
