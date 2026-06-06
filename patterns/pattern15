@@ -1,0 +1,26 @@
+/*
+Pattern 15:
+Example (n = 5):
+ABCDE
+ABCD
+ABC
+AB
+A
+Approach:
+1. Start by printing n alphabets in the first row.
+2. Reduce the number of alphabets by 1 in each subsequent row.
+3. Generate characters using:
+   (char)('A' + j - 1)
+*/
+class Solution {
+    public void pattern15(int n) {
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n-i+1;j++)
+            {
+                System.out.print((char)('A'+j-1));
+            }
+            System.out.println();
+        }
+    }
+}
