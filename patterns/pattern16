@@ -1,0 +1,25 @@
+/*
+Pattern 16: Alphabet Triangle with Repeated Characters
+Example (n = 5):
+A
+BB
+CCC
+DDDD
+EEEEE
+Approach:
+1. Each row contains the same alphabet repeated.
+2. The alphabet for a row is determined by the row number.
+3. Row i prints the character ('A' + i - 1) exactly i times.
+*/
+class Solution {
+    public void pattern16(int n) {
+             for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                System.out.print((char)('A'+i-1));//by using ASCII code
+            }
+            System.out.println();
+        }
+    }
+}
