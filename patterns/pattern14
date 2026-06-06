@@ -1,0 +1,27 @@
+/*
+Pattern 14:
+Example (n = 5):
+A
+AB
+ABC
+ABCD
+ABCDE
+Approach:
+1. For each row, print alphabets starting from 'A'.
+2. The number of characters printed in each row equals the row number.
+3. Convert characters using:
+   (char)('A' + j - 1)
+*/
+
+class Solution {
+    public void pattern14(int n) {
+         for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                System.out.print((char)('A'+j-1));
+            }
+            System.out.println();
+        }
+    }
+}
