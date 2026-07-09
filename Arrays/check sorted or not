@@ -1,0 +1,49 @@
+/*
+ * Check if an Array is Sorted
+ *
+ * Idea:
+ * Traverse the array from the second element.
+ * Compare each element with its previous element.
+ * If any element is smaller than its previous element,
+ * the array is not sorted.
+ * Otherwise, the array is sorted.
+ *
+ * Time Complexity:
+ * Best Case: O(1)   (if the array is unsorted at the beginning)
+ * Average Case: O(n)
+ * Worst Case: O(n)
+ *
+ * Space Complexity: O(1)
+ */
+
+import java.util.ArrayList;
+
+public class CheckSortedArray {
+
+    public boolean isSorted(ArrayList<Integer> nums) {
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums.get(i) < nums.get(i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> nums = new ArrayList<>();
+
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(4);
+        nums.add(5);
+
+        CheckSortedArray obj = new CheckSortedArray();
+
+        if (obj.isSorted(nums)) {
+            System.out.println("Array is Sorted");
+        } else {
+            System.out.println("Array is Not Sorted");
+        }
+    }
+}
