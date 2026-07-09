@@ -1,0 +1,50 @@
+/*
+ * Remove Duplicates from Sorted Array
+ *
+ * Idea:
+ * Use two pointers to remove duplicate elements from
+ * a sorted array in-place.
+ *
+ * - Pointer 'j' keeps track of the last unique element.
+ * - Pointer 'i' traverses the array.
+ * - Whenever a new unique element is found, place it
+ *   at the next position of 'j' and increment 'j'.
+ * - Return the number of unique elements.
+ *
+ * Time Complexity:
+ * Best Case: O(n)
+ * Average Case: O(n)
+ * Worst Case: O(n)
+ *
+ * Space Complexity: O(1)
+ */
+
+public class RemoveDuplicates {
+
+    public int removeDuplicates(int[] nums) {
+        int j = 0;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[j] != nums[i]) {
+                nums[j + 1] = nums[i];
+                j++;
+            }
+        }
+
+        return j + 1;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 2, 3, 4, 4, 5};
+
+        RemoveDuplicates obj = new RemoveDuplicates();
+        int length = obj.removeDuplicates(nums);
+
+        System.out.println("Number of Unique Elements: " + length);
+
+        System.out.print("Array after Removing Duplicates: ");
+        for (int i = 0; i < length; i++) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+}
