@@ -1,0 +1,48 @@
+/*
+ * Second Largest Element in an Array
+ *
+ * Idea:
+ * Traverse the array while maintaining the largest and
+ * second largest elements.
+ *
+ * - If the current element is greater than the largest,
+ *   update the second largest to the previous largest,
+ *   then update the largest.
+ * - Otherwise, if the current element is greater than
+ *   the second largest and not equal to the largest,
+ *   update the second largest.
+ *
+ * Time Complexity:
+ * Best Case: O(n)
+ * Average Case: O(n)
+ * Worst Case: O(n)
+ *
+ * Space Complexity: O(1)
+ */
+
+public class SecondLargestElement {
+    public int secondLargestElement(int[] nums) {
+        int largest = nums[0];
+        int secondLargest = -1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > largest) {
+                secondLargest = largest;
+                largest = nums[i];
+            } else if (nums[i] > secondLargest && nums[i] != largest) {
+                secondLargest = nums[i];
+            }
+        }
+
+        return secondLargest;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {45, 24, 33, 12, 1};
+
+        SecondLargestElement obj = new SecondLargestElement();
+        int result = obj.secondLargestElement(nums);
+
+        System.out.println("Second Largest Element: " + result);
+    }
+}
