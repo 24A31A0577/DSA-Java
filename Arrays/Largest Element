@@ -1,0 +1,39 @@
+/*
+ * Largest Element in an Array
+ *
+ * Idea:
+ * Assume the first element is the largest.
+ * Traverse the array from the second element.
+ * If a larger element is found, update the largest value.
+ * Return the largest element after the traversal.
+ *
+ * Time Complexity:
+ * Best Case: O(n)
+ * Average Case: O(n)
+ * Worst Case: O(n)
+ *
+ * Space Complexity: O(1)
+ */
+
+public class LargestElement {
+    public int largestElement(int[] nums) {
+        int largest = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            if (largest < nums[i]) {
+                largest = nums[i];
+            }
+        }
+
+        return largest;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {45, 24, 33, 12, 1};
+
+        LargestElement obj = new LargestElement();
+        int result = obj.largestElement(nums);
+
+        System.out.println("Largest Element: " + result);
+    }
+}
