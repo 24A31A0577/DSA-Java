@@ -1,0 +1,40 @@
+/*
+ * Left Rotate Array by One Position
+ *
+ * Idea:
+ * Store the first element in a temporary variable.
+ * Shift all remaining elements one position to the left.
+ * Place the stored element at the last position.
+ *
+ * Time Complexity:
+ * Best Case: O(n)
+ * Average Case: O(n)
+ * Worst Case: O(n)
+ *
+ * Space Complexity: O(1)
+ */
+
+public class LeftRotateByOne {
+
+    public void rotateArrayByOne(int[] nums) {
+        int temp = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            nums[i - 1] = nums[i];
+        }
+
+        nums[nums.length - 1] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 5};
+
+        LeftRotateByOne obj = new LeftRotateByOne();
+        obj.rotateArrayByOne(nums);
+
+        System.out.print("Array after Left Rotation by One: ");
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+    }
+}
