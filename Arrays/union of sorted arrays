@@ -1,0 +1,96 @@
+/*
+ * Union of Two Sorted Arrays
+ *
+ * Problem:
+ * Given two sorted arrays, return the union of both arrays.
+ * The union should contain only distinct elements and must
+ * be in sorted order.
+ *
+ * Approach:
+ * 1. Use two pointers (i and j) to traverse both arrays.
+ * 2. Compare the current elements of both arrays.
+ * 3. Insert the smaller element into the result array if it
+ *    is not already present.
+ * 4. If both elements are equal, insert it only once and
+ *    move both pointers.
+ * 5. After one array is exhausted, add the remaining elements
+ *    from the other array while avoiding duplicates.
+ *
+ * A separate pointer (k) is used to store elements in the
+ * result array.
+ *
+ * Time Complexity:
+ * Best Case: O(n + m)
+ * Average Case: O(n + m)
+ * Worst Case: O(n + m)
+ *
+ * Space Complexity:
+ * O(n + m)
+ */
+
+public class UnionOfTwoSortedArrays {
+
+    public int[] unionArray(int[] nums1, int[] nums2) {
+
+        int i = 0, j = 0, k = 0;
+
+        int[] temp = new int[nums1.length + nums2.length];
+
+        while (i < nums1.length && j < nums2.length) {
+
+            if (nums1[i] <= nums2[j]) {
+
+                if (k == 0 || temp[k - 1] != nums1[i]) {
+                    temp[k++] = nums1[i];
+                }
+                i++;
+
+            } else {
+
+                if (k == 0 || temp[k - 1] != nums2[j]) {
+                    temp[k++] = nums2[j];
+                }
+                j++;
+            }
+        }
+
+        // Add remaining elements from nums1
+        while (i < nums1.length) {
+            if (k == 0 || temp[k - 1] != nums1[i]) {
+                temp[k++] = nums1[i];
+            }
+            i++;
+        }
+
+        // Add remaining elements from nums2
+        while (j < nums2.length) {
+            if (k == 0 || temp[k - 1] != nums2[j]) {
+                temp[k++] = nums2[j];
+            }
+            j++;
+        }
+
+        int[] ans = new int[k];
+
+        for (int x = 0; x < k; x++) {
+            ans[x] = temp[x];
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums1 = {1, 2, 2, 3, 4};
+        int[] nums2 = {2, 3, 5};
+
+        UnionOfTwoSortedArrays obj = new UnionOfTwoSortedArrays();
+
+        int[] result = obj.unionArray(nums1, nums2);
+
+        System.out.print("Union Array: ");
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
