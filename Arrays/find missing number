@@ -1,0 +1,56 @@
+/*
+ * Missing Number (LeetCode 268)
+ *
+ * Problem:
+ * Given an array nums containing n distinct numbers in the range [0, n],
+ * return the only number in the range that is missing from the array.
+ *
+ * Approach:
+ * 1. Create a frequency array of size (n + 1).
+ * 2. Traverse the given array and mark each number as present.
+ * 3. Traverse the frequency array.
+ * 4. The index whose value remains 0 is the missing number.
+ *
+ * This approach uses extra space to keep track of the numbers
+ * that are present in the array.
+ *
+ * Time Complexity:
+ * Best Case: O(n)
+ * Average Case: O(n)
+ * Worst Case: O(n)
+ *
+ * Space Complexity:
+ * O(n)
+ */
+
+public class MissingNumber {
+
+    public int missingNumber(int[] nums) {
+
+        // Frequency array to mark the presence of elements
+        int[] freq = new int[nums.length + 1];
+
+        // Mark each number as present
+        for (int i = 0; i < nums.length; i++) {
+            freq[nums[i]] = 1;
+        }
+
+        // Find the missing number
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] == 0) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {3, 0, 1};
+
+        MissingNumber obj = new MissingNumber();
+
+        System.out.println("Missing Number: " + obj.missingNumber(nums));
+    }
+}
